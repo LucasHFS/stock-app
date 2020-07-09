@@ -1,7 +1,7 @@
 
 import Knex from 'knex';
 
-export async function up(knex: Knex){
+export async function up(knex: Knex) {
   return knex.schema.createTable('product', table => {
     table.increments('id').primary();
     table.string('description').notNullable();
@@ -9,18 +9,18 @@ export async function up(knex: Knex){
     table.integer('quantity').notNullable();
 
     table.integer('category_id')
-    .notNullable()
-    .references('id')
-    .inTable('category');
+      .notNullable()
+      .references('id')
+      .inTable('category');
 
     table.integer('provider_id')
-    .notNullable()
-    .references('id')
-    .inTable('provider');
-    
+      .notNullable()
+      .references('id')
+      .inTable('provider');
+
   });
 }
 
-export async function down(knex: Knex){
+export async function down(knex: Knex) {
   return knex.schema.dropTable('product');
 }
