@@ -3,11 +3,13 @@ import express from 'express';
 import ProductController from './controllers/ProductController';
 import ProviderController from './controllers/ProviderController';
 import CityController from './controllers/CityController';
+import CategoryController from './controllers/CityController';
 
 const routes = express.Router();
 const productController = new ProductController();
 const providerController = new ProviderController();
 const cityController = new CityController();
+const categoryController = new CategoryController();
 
 
 // !-------   Start of Basic Cruds   -------!
@@ -34,7 +36,10 @@ routes.delete('/cities/:id', cityController.delete);
 
 
 // Todo: Category
-
+routes.get('/categories', categoryController.index);
+routes.post('/categories', categoryController.create);
+routes.put('/categories/:id', categoryController.update);
+routes.delete('/categories/:id', categoryController.delete);
 
 // Todo: Transporter
 
