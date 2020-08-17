@@ -1,0 +1,43 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --transpileOnly --ignore-watch node_modules  src/server.ts",
+    "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
+    "knex:seed": "knex --knexfile knexfile.ts seed:run",
+    "pretest": "NODE_ENV=test knex --knexfile knexfile.ts migrate:latest",
+    "test": "NODE_ENV=test jest",
+    "postest": "NODE_ENV=test knex migrate:rollback --all"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@sucrase/jest-plugin": "^2.0.0",
+    "@types/node": "^14.0.14",
+    "@types/supertest": "^2.0.10",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "joi": "^17.2.0",
+    "knex": "^0.21.1",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/cors": "^2.8.6",
+    "@types/factory-girl": "^5.0.2",
+    "@types/faker": "^4.1.12",
+    "@types/jest": "^26.0.9",
+    "@types/joi": "^14.3.4",
+    "factory-girl": "^5.0.4",
+    "faker": "^4.1.0",
+    "jest": "^26.4.0",
+    "supertest": "^4.0.2",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.9.3"
+  }
+}
