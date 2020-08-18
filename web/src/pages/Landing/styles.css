@@ -65,19 +65,20 @@ h1{
     width: 4rem;
 }
 
-.buttons-container a.study {
+.buttons-container a.stores {
     background: var(--color-primary-lighter);
 }
 
-.buttons-container a.study:hover {
+.buttons-container a.stores:hover {
     background: var(--color-primary-light);
 }
 
-.buttons-container a.give-classes {
+.buttons-container a.transporters {
     background: var(--color-secundary);
+    width: 45%;
 }
 
-.buttons-container a.give-classes:hover {
+.buttons-container a.transporters:hover {
     background: var(--color-secundary-dark);
 }
 
@@ -131,11 +132,11 @@ h1{
         grid-area: buttons;
         justify-content: flex-start;
     }
-
+    
     .buttons-container a {
         font-size: 2.4rem;
     }
-
+    
     .buttons-container a img {
         margin-right: 2.4rem;
     }

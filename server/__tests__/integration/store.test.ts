@@ -1,6 +1,5 @@
 import request from 'supertest';
 import app from '../../src/app';
-import factories from '../Util/factories';
 
 describe('Store', () => {
     var lastStoreId = 0;
@@ -24,7 +23,8 @@ describe('Store', () => {
                 address_district: 'São João',
                 telephone: '62993328319',
                 cnpj: '17322829000103',
-                city_id: 1,
+                city: 'Brazilandia',
+                uf: 'GO',
             });
 
         expect(response.body).toHaveProperty('id');
@@ -43,7 +43,6 @@ describe('Store', () => {
                 address_district: 'São João',
                 telephone: '62993328319',
                 cnpj: '17322829000103',
-                city_id: 1,
             });
 
         expect(response.status).toEqual(200);

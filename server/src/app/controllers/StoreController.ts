@@ -1,4 +1,5 @@
 import knex from '../../database/connection';
+import { Transaction } from 'knex';
 import { Request, Response } from 'express';
 
 /**
@@ -8,24 +9,39 @@ import { Request, Response } from 'express';
 
 class StoreController {
 
+
   async index( req: Request, res: Response ) {
     const stores = await knex('store').select('*');
     return res.json(stores);
   }
 
   async create( req: Request, res: Response ) {
-    const { name, address, address_number, address_district, telephone, cnpj, city_id } = req.body;
+    const trx = await knex.transaction();
+
+    const { name, address, address_number, address_district, telephone, cnpj, city, uf } = req.body;
     //validate data
 
-    const insertedStore = await knex('store').insert({
+    //Check if needs to insert new city or use an existing one
+    const dbCity = await trx('city').where('uf', '=', uf).where('city.name', '=', city);
+    let cityId = 0;
+
+    if(dbCity.length > 0){
+      cityId = dbCity[0].id;
+    }else{
+      cityId = await trx('city').insert({uf, name:city});
+    }
+    console.log(cityId);
+    const insertedStore = await trx('store').insert({
       name, 
       address, 
       address_number, 
       address_district, 
       telephone, 
       cnpj, 
-      city_id
+      city_id: cityId,
     });
+    await trx.commit();
+
 
     return res.status(201).json({id: insertedStore[0]});
   }

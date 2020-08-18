@@ -1,18 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 
 import './styles.css';
 
-import logoImg from '../../assets/images/logo.svg';
-import landingImg from '../../assets/images/landing.svg';
+import landingImg from '../../assets/images/landing.png';
 
-import studyIcon from '../../assets/images/icons/study.svg';
-import giveClassesIcon from '../../assets/images/icons/give-classes.svg';
-import purpleHeartIcon from '../../assets/images/icons/purple-heart.svg';
+import storeIcon from '../../assets/images/icons/store.svg';
+import transporterIcon from '../../assets/images/icons/truck.svg';
 
 
 function Landing() {
-    
 
     return (
         <div id="page-landing">
@@ -21,25 +18,25 @@ function Landing() {
                     <h1>Stock.io</h1>
                 </div>
 
-            <img 
-                src={landingImg} 
-                alt="Plataforma de Estudos" 
-                className="hero-image"
-            />
+                <img 
+                    src={landingImg} 
+                    alt="Plataforma de Estudos" 
+                    className="hero-image"
+                />
 
-            <div className="buttons-container">
-                <Link to="/study" className="study">
-                    <img src={studyIcon} alt="Estudar"/>
-                    Estudar
-                </Link>
+                <div className="buttons-container">
+                    <Link to="/store" className="stores">
+                        <img src={storeIcon} alt="Lojas"/>
+                        Lojas
+                    </Link>
 
-                <Link to="/give-classes" className="give-classes">
-                    <img src={giveClassesIcon} alt="Dar Aulas"/>
-                    Dar Aulas 
-                </Link>
+                    <Link to="/transporter" className="transporters">
+                        <img src={transporterIcon} alt="Transportadoras"/>
+                        Transportadoras
+                    </Link>
+                </div>
+
             </div>
-
-        </div>
 
         </div>
     );

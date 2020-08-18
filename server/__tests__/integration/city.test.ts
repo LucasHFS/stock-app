@@ -19,7 +19,7 @@ describe('City', () => {
         const response = await request(app)
         .post('/cities')
         .send({
-            name: 'Anápolis',
+            name: 'Goiânia',
             uf: 'GO'
         });
         

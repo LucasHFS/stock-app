@@ -1,6 +1,5 @@
 import request from 'supertest';
 import app from '../../src/app';
-import factories from '../Util/factories';
 
 describe('Transporter', () => {
 
