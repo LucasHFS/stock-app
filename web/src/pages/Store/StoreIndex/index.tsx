@@ -19,7 +19,7 @@ function Stores() {
             alert('Um erro inesperado ocorreu!');
         });
         
-    }, [])
+    }, [stores])
 
     return (
         <div id="page-teacher-list" className="container">

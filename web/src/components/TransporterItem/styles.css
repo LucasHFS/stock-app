@@ -85,7 +85,51 @@
     height: 2rem;
 }
 
+.custom-ui {
+    min-width: 60rem;
+    min-height: 20rem;
+    background: #9871F5;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1%;
+}
 
+.custom-ui h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.custom-ui div button {
+    width: 12rem;
+    height: 4rem;
+    border: none;
+    border-radius: 5%;
+    color: #fff;
+
+    cursor: pointer;
+    transition: .2s background;
+}
+
+.custom-ui div button:nth-child(1) {
+    margin-right: 2rem;
+    border-radius: 5%;
+    background: #ff6961;
+}
+
+.custom-ui div button:nth-child(1):hover {
+    background: #ff5148;
+}
+
+.custom-ui div button:nth-child(2) {
+    background: #6A6180;
+}
+
+.custom-ui div button:nth-child(2):hover {
+    background: #494358;
+}
 
 @media (min-width: 700px){
     

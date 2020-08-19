@@ -6,7 +6,7 @@ import './styles.css';
 import landingImg from '../../assets/images/landing.png';
 
 import storeIcon from '../../assets/images/icons/store.svg';
-import transporterIcon from '../../assets/images/icons/truck.svg';
+import transporterIcon from '../../assets/images/icons/truck-moving.svg';
 
 
 function Landing() {

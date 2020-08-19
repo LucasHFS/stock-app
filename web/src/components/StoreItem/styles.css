@@ -11,29 +11,60 @@
     font-size: 1.6rem;
 }
 
-.teacher-item header {
-    padding: 3.2rem 2rem;
+.teacher-item header button {
+    text-decoration: none;
+    height: 5.6rem;
+    background: none;
+    border: none;
+    cursor: pointer;
     display: flex;
     align-items: center;
 }
 
-.teacher-item header img {
+.teacher-item header {
+    padding: 3.2rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.teacher-item header .first {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 0 !important;
+    align-items: start;
+}
+
+.teacher-item header .first .second{
+    display: flex;
+    flex-direction: column;
+    margin-left: 2rem !important;
+    justify-content: start;
+    margin-top: 1.5rem;
+}
+
+.teacher-item header img.delete {
+    width: 3.5rem;
+}
+
+.teacher-item header .first img {
     width: 8rem;
     height: 8rem;
     border-radius: 20%;
 }
 
-.teacher-item header div {
+.teacher-item header .first {
     margin-left: 2.4rem;
 }
 
-.teacher-item header div strong {
+.teacher-item header .first strong {
    font: 700 2.4rem Archivo; 
    display: block;
    color: var(--color-text-title);
 }
 
-.teacher-item header div span {
+.teacher-item header .first span {
     font-size: 1.6rem;
     display: block;
     margin-top: 0.4rem;
@@ -87,7 +118,51 @@
     margin-right: 2rem;
 }
 
+.custom-ui {
+    width: 60rem;
+    height: 20rem;
+    background: #9871F5;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1%;
+}
 
+.custom-ui h1 {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+}
+
+.custom-ui div button {
+    width: 12rem;
+    height: 4rem;
+    border: none;
+    border-radius: 5%;
+    color: #fff;
+
+    cursor: pointer;
+    transition: .2s background;
+}
+
+.custom-ui div button:nth-child(1) {
+    margin-right: 2rem;
+    border-radius: 5%;
+    background: #ff6961;
+}
+
+.custom-ui div button:nth-child(1):hover {
+    background: #ff5148;
+}
+
+.custom-ui div button:nth-child(2) {
+    background: #6A6180;
+}
+
+.custom-ui div button:nth-child(2):hover {
+    background: #494358;
+}
 
 @media (min-width: 700px){
     

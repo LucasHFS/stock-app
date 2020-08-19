@@ -1,10 +1,16 @@
 import React from 'react';
 
+import { confirmAlert } from 'react-confirm-alert'; // Import
+import 'react-confirm-alert/src/react-confirm-alert.css'; // Import css
+
+
 import editIcon from '../../assets/images/icons/edit.svg';
 import storeProfileIcon from '../../assets/images/icons/store-alt.svg';
+import trashIcon from '../../assets/images/icons/trash.svg';
 
 import './styles.css';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import api from '../../services/api';
 
 interface StoreItem {
     store: {
@@ -21,14 +27,57 @@ interface StoreItem {
 }
 
 const  StoreItem:React.FC<StoreItem> =  ({ store }) => {
+
+    const history = useHistory();
+
+    function handleDelete(id: string) {
+        api.delete(`stores/${id}`).then(response => {
+            alert('Loja Excluída');
+        }).catch(err => {
+            console.log(err);
+            alert('Um erro inesperado ocorreu');
+        })
+    }
+
+    const submit = (id: string) => {
+        confirmAlert({
+            customUI: ({ onClose }) => {
+              return (
+                <div className='custom-ui'>
+                  
+                  <h1>Deseja excluír essa loja?</h1>
+
+                  
+                  <div>
+                    <button
+                        onClick={() => {
+                            handleDelete(id);
+                        onClose();
+                        }}
+                    >
+                        Sim
+                    </button>
+                    <button onClick={onClose}>Não</button>
+                  </div>
+                </div>
+              );
+            }
+          });
+      };
+
     return (
         <article className="teacher-item">
             <header>
-                <img src={storeProfileIcon} alt="Lucas Silva"/>
-                <div>
-                    <strong>{store.name}</strong>
-                    <span>{store.city_name} - {store.city_uf}</span>
+                <div className="first">
+                    <img src={storeProfileIcon} alt="Lucas Silva"/>
+                    <div className="second">
+                        <strong>{store.name}</strong>
+                        <span>{store.city_name} - {store.city_uf}</span>
+                    </div>
                 </div>
+                <button onClick={() => {submit(store.id)}}>
+                    <img src={trashIcon} className="delete" alt="Excluir"/>
+                </button>
             </header>
 
             <p><b>CNPJ:</b> <strong>{store.cnpj}</strong></p>
