@@ -1,32 +1,49 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
+
 import editIcon from '../../assets/images/icons/edit.svg';
-import storeProfileIcon from '../../assets/images/icons/store-alt.svg';
+import transporterProfileIcon from '../../assets/images/icons/truck.svg';
 
 import './styles.css';
 
-function TransporterItem() {
+interface TransporterItem {
+    transporter: {
+        id: string;
+        name: string;
+        cnpj: string;
+        telephone: string;
+        city_name: string;
+        city_uf: string;
+        address: string;
+        address_number?: string;
+        address_district?: string;
+    }
+}
+
+const  TransporterItem:React.FC<TransporterItem> =  ({ transporter }) => {
+
     return (
         <article className="teacher-item">
             <header>
-                <img src={storeProfileIcon} alt="Lucas Silva"/>
+                <img src={transporterProfileIcon} alt="Lucas Silva"/>
                 <div>
-                    <strong>Lucas's Store</strong>
-                    <span>Anápolis - GO</span>
+                    <strong>{transporter.name}</strong>
+                    <span>{transporter.city_name} - {transporter.city_uf}</span>
                 </div>
             </header>
 
-            <p><b>CNPJ:</b> <strong>34.186.342/0001-60</strong></p>
-            <p><b>Endereço:</b> <strong>Rua a Lote X, </strong></p>
+            <p><b>CNPJ:</b> <strong>{transporter.cnpj}</strong></p>
+            <p><b>Endereço:</b> <strong>{transporter.address} {transporter.address_number ? 'n° ' + transporter.address_number : null} {transporter.address_district} </strong></p>
             <footer>
                 <p>
                     <b>Telefone:</b>
-                    <strong>(62) 99332-8319</strong>
+                    <strong>{transporter.telephone}</strong>
                 </p>
-                <button type="button">
-                    <img src={editIcon} alt="Whatsapp" />
+                <Link to={`/transporter/update?id=${transporter.id}`} >
+                    <img src={editIcon} alt="Editar" />
                     Editar
-                </button>
+                </Link>
             </footer>
         </article>
     );

@@ -23,7 +23,7 @@ describe('Store', () => {
                 address_district: 'São João',
                 telephone: '62993328319',
                 cnpj: '17322829000103',
-                city: 'Brazilandia',
+                city: 'Goiânia',
                 uf: 'GO',
             });
 

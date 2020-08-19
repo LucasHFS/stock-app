@@ -2,18 +2,19 @@ import React, { useEffect, useState } from 'react';
 
 import api from '../../../services/api';
 
-import StoreItem from '../../../components/StoreItem';
+import TransporterItem from '../../../components/TransporterItem';
 import PageHeader from '../../../components/PageHeader';
+
 
 
 import './styles.css';
 
-function Stores() {
-    const [stores, setStores] = useState([]);
+function StoreIndex() {
+    const [transporters, setTransporters] = useState([]);
 
     useEffect(() => {
-        api.get('stores').then(response => {
-            setStores(response.data)
+        api.get('transporters').then(response => {
+            setTransporters(response.data)
         }).catch(error => {
             console.log(error)
             alert('Um erro inesperado ocorreu!');
@@ -23,14 +24,14 @@ function Stores() {
 
     return (
         <div id="page-teacher-list" className="container">
-            <PageHeader title="Lojas" redirectPage="store" buttonWords="Nova Loja" />
+            <PageHeader title="Transportadoras" redirectPage='transporter' buttonWords="Cadastrar" />
             <main>
-                {stores.map(store => (
-                    <StoreItem store={store} />
+                {transporters.map(store => (
+                    <TransporterItem transporter={store} />
                 ))}
             </main>
         </div>
     )
 }
 
-export default Stores;
+export default StoreIndex;

@@ -18,6 +18,11 @@
     padding: 1.6rem 0;
 }
 
+.page-header .top-bar-container a{
+    cursor: pointer;
+    text-decoration: none;
+}
+
 .header-content > a:nth-child(2) > img:nth-child(1) {
     height: 3.6rem;
     margin-right: 1.5rem;
@@ -47,6 +52,7 @@
 }
 
 .page-header .header-content strong {
+    margin-bottom: 2rem;
     font: 700 3.6rem Archivo;
     line-height: 4.2rem;
     color: var(--color-title-in-primary);
@@ -109,5 +115,7 @@
 
     .page-header .header-content strong {
         max-width: 350px;
+        margin-bottom: 0rem;
+
     }
 }

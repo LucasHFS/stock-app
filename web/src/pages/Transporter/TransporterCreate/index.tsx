@@ -11,7 +11,7 @@ import warningIcon from '../../../assets/images/icons/warning.svg';
 import './styles.css';
 import PageHeader from '../../../components/PageHeader';
 
-function StoreController() {
+function TransporterController() {
     
     
     useEffect(() => {
@@ -45,11 +45,11 @@ function StoreController() {
     const [ selectedUf, setSelectedUf] = useState<string>('0');
     const [ selectedCity, setSelectedCity] = useState<string>('0');
     
-    function handleCreateStore(e: FormEvent){
+    function handleCreateTransporter(e: FormEvent){
         e.preventDefault();
         
         if(isCreate){
-            api.post('stores', {
+            api.post('transporters', {
                 name,
                 cnpj,
                 telephone,
@@ -60,13 +60,13 @@ function StoreController() {
                 city: selectedCity,
             }).then(() => {
                 alert('Cadastro realizado com sucesso!');
-                history.push('/store');
+                history.push('/transporter');
             }).catch(error => {
                 alert('Erro no cadastro!');
             });
         } else{
             const city_id = location.search.split('=')[1]
-            api.put(`stores/${city_id}`, {
+            api.put(`transporters/${city_id}`, {
                 name,
                 cnpj,
                 telephone,
@@ -76,8 +76,8 @@ function StoreController() {
                 uf: selectedUf,
                 city: selectedCity,
             }).then(() => {
-                alert('Loja atualizada com sucesso!');
-                history.push('/store');
+                alert('Transportadora atualizada com sucesso!');
+                history.push('/transporter');
             }).catch(error => {
                 alert('Erro na atualização!');
             });
@@ -117,7 +117,7 @@ function StoreController() {
     useEffect(() => {
         const id = location.search.split('=')[1];
         if(id){
-            api.get(`stores/${id}`).then(response =>{
+            api.get(`transporters/${id}`).then(response =>{
                 setName(response.data.name);
                 setCnpj(response.data.cnpj);
                 setTelephone(response.data.telephone);
@@ -126,7 +126,7 @@ function StoreController() {
                 setAddress_district(response.data.address_district);
                 setSelectedUf(response.data.city_uf);
                 setSelectedCity(response.data.city_name);
-                setHeaderTitle('Atualizar Loja');
+                setHeaderTitle('Atualizar Transportadora');
                 setIsCreate(false);
             })
             .catch(err => {
@@ -135,7 +135,7 @@ function StoreController() {
             });
         } else{
             setIsCreate(true);
-            setHeaderTitle('Criar Loja');
+            setHeaderTitle('Criar Transportadora');
         }
     }, []);
 
@@ -145,9 +145,9 @@ function StoreController() {
         <div id="page-teacher-form" className="container">
             < PageHeader title={headerTitle}/>
             <main>
-                <form onSubmit={handleCreateStore}>
+                <form onSubmit={handleCreateTransporter}>
                     <fieldset>
-                        <legend>Loja</legend>
+                        <legend>Transportadora</legend>
                         <Input 
                             name="name" 
                             label="Nome" 
@@ -247,4 +247,4 @@ function StoreController() {
     )
 }
 
-export default StoreController;
+export default TransporterController;

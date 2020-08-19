@@ -11,8 +11,14 @@ class StoreController {
 
 
   async index( req: Request, res: Response ) {
-    const stores = await knex('store').select('*');
+    const stores = await knex('store').innerJoin('city', 'store.city_id', 'city.id').select('store.*', 'city.name as city_name', 'city.uf as city_uf');
     return res.json(stores);
+  }
+
+  async findOne( req: Request, res: Response ) {
+    const { id } = req.params;
+    const store = await knex('store').innerJoin('city', 'store.city_id', 'city.id').select('store.*', 'city.id as city_id', 'city.name as city_name', 'city.uf as city_uf').where('store.id', '=', id);
+    return res.json(store[0]);
   }
 
   async create( req: Request, res: Response ) {
@@ -22,7 +28,7 @@ class StoreController {
     //validate data
 
     //Check if needs to insert new city or use an existing one
-    const dbCity = await trx('city').where('uf', '=', uf).where('city.name', '=', city);
+    const dbCity = await trx('city').where('uf', '=', uf).where('name', '=', city);
     let cityId = 0;
 
     if(dbCity.length > 0){
@@ -47,12 +53,25 @@ class StoreController {
   }
 
   async update( req: Request, res: Response ) {
+
+    const trx = await knex.transaction();
+
     //validate data
     const { id } = req.params;
-    const { name, address, address_number, address_district, telephone, cnpj, city_id } = req.body;
+    const { name, address, address_number, address_district, telephone, cnpj, uf, city } = req.body;
     //validate data
 
-    const insertedStore = await knex('store')
+    //Check if needs to insert new city or use an existing one
+    const dbCity = await trx('city').where('uf', '=', uf).where('name', '=', city);
+    let cityId = 0;
+
+    if(dbCity.length > 0){
+      cityId = dbCity[0].id;
+    }else{
+      cityId = await trx('city').insert({uf, name:city});
+    }
+    
+    const updatedStore = await trx('store')
         .where('id', id)
         .update({
           name, 
@@ -61,10 +80,11 @@ class StoreController {
           address_district, 
           telephone, 
           cnpj, 
-          city_id
+          city_id: cityId,
         });
 
-    return res.json(insertedStore);
+    await trx.commit();
+    return res.json(updatedStore);
   }
 
   async delete( req: Request, res: Response ) {

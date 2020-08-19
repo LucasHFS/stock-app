@@ -38,12 +38,14 @@ routes.delete('/categories/:id', categoryController.delete);
 
 // Todo: Transporter
 routes.get('/transporters', transporterController.index);
+routes.get('/transporters/:id', transporterController.findOne);
 routes.post('/transporters', transporterController.create);
 routes.put('/transporters/:id', transporterController.update);
 routes.delete('/transporters/:id', transporterController.delete);
 
 // Todo: Store
 routes.get('/stores', storeController.index);
+routes.get('/stores/:id', storeController.findOne);
 routes.post('/stores', storeController.create);
 routes.put('/stores/:id', storeController.update);
 routes.delete('/stores/:id', storeController.delete);

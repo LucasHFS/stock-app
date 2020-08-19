@@ -25,7 +25,8 @@ describe('Transporter', () => {
                 address_cep: '75170000',
                 telephone: '62993328319',
                 cnpj: '17322829000103',
-                city_id: 1,
+                city: 'Goiânia',
+                uf: 'GO',
             });
 
         expect(response.body).toHaveProperty('id');
