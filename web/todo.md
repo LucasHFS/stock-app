@@ -1,5 +1,6 @@
 ### Todo:
 
-* Integrate with the ibge api to get states and cities
+* Add loading to await parts
+* Make the delete part more smooth
 
 

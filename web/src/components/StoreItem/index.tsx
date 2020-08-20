@@ -66,7 +66,7 @@ const  StoreItem:React.FC<StoreItem> =  ({ store }) => {
       };
 
     return (
-        <article className="teacher-item">
+        <article className="store-item">
             <header>
                 <div className="first">
                     <img src={storeProfileIcon} alt="Lucas Silva"/>

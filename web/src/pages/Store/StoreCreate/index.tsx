@@ -142,7 +142,7 @@ function StoreController() {
 
 
     return (
-        <div id="page-teacher-form" className="container">
+        <div id="page-store-form" className="container">
             < PageHeader title={headerTitle}/>
             <main>
                 <form onSubmit={handleCreateStore}>

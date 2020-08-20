@@ -32,6 +32,14 @@ describe('Store', () => {
         expect(response.status).toEqual(201);
     });
 
+    //FindOne
+    it('should be able to show all', async() => {
+        const response =  await request(app)
+            .get(`/stores/${lastStoreId}`);
+
+        expect(response.status).toEqual(200);
+    });
+
     //Update
     it('should be able to update', async () => {
         const response = await request(app)
@@ -43,6 +51,8 @@ describe('Store', () => {
                 address_district: 'São João',
                 telephone: '62993328319',
                 cnpj: '17322829000103',
+                uf: 'GO',
+                city: 'Anápolis',
             });
 
         expect(response.status).toEqual(200);

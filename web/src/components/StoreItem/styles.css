@@ -1,4 +1,4 @@
-.teacher-item {
+.store-item {
     background: var(--color-box-base);
     border: 1px solid var(--color-line-in-white);
     border-radius: 0.8rem;
@@ -6,12 +6,12 @@
     overflow: hidden;
 }
 
-.teacher-item strong {
+.store-item strong {
     color: var(--color-primary);
     font-size: 1.6rem;
 }
 
-.teacher-item header button {
+.store-item header button {
     text-decoration: none;
     height: 5.6rem;
     background: none;
@@ -21,14 +21,14 @@
     align-items: center;
 }
 
-.teacher-item header {
+.store-item header {
     padding: 3.2rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.teacher-item header .first {
+.store-item header .first {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -36,7 +36,7 @@
     align-items: start;
 }
 
-.teacher-item header .first .second{
+.store-item header .first .second{
     display: flex;
     flex-direction: column;
     margin-left: 2rem !important;
@@ -44,39 +44,39 @@
     margin-top: 1.5rem;
 }
 
-.teacher-item header img.delete {
+.store-item header img.delete {
     width: 3.5rem;
 }
 
-.teacher-item header .first img {
+.store-item header .first img {
     width: 8rem;
     height: 8rem;
     border-radius: 20%;
 }
 
-.teacher-item header .first {
+.store-item header .first {
     margin-left: 2.4rem;
 }
 
-.teacher-item header .first strong {
+.store-item header .first strong {
    font: 700 2.4rem Archivo; 
    display: block;
    color: var(--color-text-title);
 }
 
-.teacher-item header .first span {
+.store-item header .first span {
     font-size: 1.6rem;
     display: block;
     margin-top: 0.4rem;
 }
 
-.teacher-item > p {
+.store-item > p {
     padding: 0 2rem;
     font-size: 1.6rem;
     line-height: 2.8rem;
 }
 
-.teacher-item footer {
+.store-item footer {
     padding: 3.2rem 2rem;
     background: var(--color-box-footer);
     border-top: 1px solid var(--color-line-in-white);
@@ -86,13 +86,13 @@
     justify-content: space-between;
 }
 
-.teacher-item footer p strong {
+.store-item footer p strong {
     color: var(--color-primary);
     font-size: 1.6rem;
     display: block;
 }
 
-.teacher-item footer a {
+.store-item footer a {
     text-decoration: none;
     width: 20rem;
     height: 5.6rem;
@@ -108,11 +108,11 @@
     transition: 0.2s;font-size: 1.9rem;
 }
 
-.teacher-item footer a:hover {
+.store-item footer a:hover {
     background: var(--color-primary-lighter);
 }
 
-.teacher-item footer a img{
+.store-item footer a img{
     width: 2rem;
     height: 2rem;
     margin-right: 2rem;

@@ -65,7 +65,7 @@ const  TransporterItem:React.FC<TransporterItem> =  ({ transporter }) => {
       };
 
     return (
-        <article className="teacher-item">
+        <article className="transporter-item">
             <header>
                 <div className="first">
                     <img src={transporterProfileIcon} alt="Lucas Silva"/>

@@ -1,4 +1,4 @@
-#page-teacher-list {
+#page-store-list {
     width: 100vw;
     height: 100vh;
 }
@@ -13,14 +13,14 @@
     color: var(--color-text-in-primary);
 }
 
-#page-teacher-list main {
+#page-store-list main {
     margin: 3.2rem auto;
     width: 90%;
 }
 
 
 @media (min-width: 700px) {
-    #page-teacher-list {
+    #page-store-list {
         max-width: 100%;
     }
 
@@ -37,33 +37,33 @@
         margin-top: 0;
     }
 
-    #page-teacher-list main {
+    #page-store-list main {
         padding: 3.2rem 0;
         max-width: 740px;
         margin: 0 auto;
     }
 
-    .teacher-item header,
-    .teacher-item footer {
+    .store-item header,
+    .store-item footer {
         padding: 3.2rem;
     }
 
-    .teacher-item > p {
+    .store-item > p {
         padding: 0 3.2rem;
     }
     
-    .teacher-item footer p strong {
+    .store-item footer p strong {
         display: initial;
         margin-left: 1.6rem;
     }
 
-    .teacher-item footer button {
+    .store-item footer button {
         width: 24.5rem;
         font-size: 1.6rem;
         justify-content: center;
     }
 
-    .teacher-item footer button img {
+    .store-item footer button img {
         margin-right: 1.6rem;
     }
     

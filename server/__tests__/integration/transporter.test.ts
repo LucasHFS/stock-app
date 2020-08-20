@@ -34,6 +34,14 @@ describe('Transporter', () => {
         expect(response.status).toEqual(201);
     });
 
+    //FindOne
+    it('should be able to show all', async() => {
+        const response =  await request(app)
+            .get(`/transporters/${lastTransporterId}`);
+
+        expect(response.status).toEqual(200);
+    });
+
     //Update
     it('should be able to update', async () => {
         const response = await request(app)
@@ -46,7 +54,8 @@ describe('Transporter', () => {
                 address_cep: '75170000',
                 telephone: '62993328319',
                 cnpj: '17322829000103',
-                city_id: 1,
+                uf: 'GO',
+                city: 'Anápolis',
             });
 
         expect(response.status).toEqual(200);

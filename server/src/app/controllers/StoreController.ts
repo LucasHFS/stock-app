@@ -1,5 +1,4 @@
 import knex from '../../database/connection';
-import { Transaction } from 'knex';
 import { Request, Response } from 'express';
 
 /**
@@ -9,16 +8,19 @@ import { Request, Response } from 'express';
 
 class StoreController {
 
-
   async index( req: Request, res: Response ) {
+
     const stores = await knex('store').innerJoin('city', 'store.city_id', 'city.id').select('store.*', 'city.name as city_name', 'city.uf as city_uf');
     return res.json(stores);
+
   }
 
   async findOne( req: Request, res: Response ) {
+
     const { id } = req.params;
     const store = await knex('store').innerJoin('city', 'store.city_id', 'city.id').select('store.*', 'city.id as city_id', 'city.name as city_name', 'city.uf as city_uf').where('store.id', '=', id);
     return res.json(store[0]);
+
   }
 
   async create( req: Request, res: Response ) {
@@ -31,12 +33,12 @@ class StoreController {
     const dbCity = await trx('city').where('uf', '=', uf).where('name', '=', city);
     let cityId = 0;
 
-    if(dbCity.length > 0){
+    if(dbCity.length > 0){ //if the city is registered in the database
       cityId = dbCity[0].id;
     }else{
       cityId = await trx('city').insert({uf, name:city});
     }
-    console.log(cityId);
+    
     const insertedStore = await trx('store').insert({
       name, 
       address, 
@@ -65,7 +67,7 @@ class StoreController {
     const dbCity = await trx('city').where('uf', '=', uf).where('name', '=', city);
     let cityId = 0;
 
-    if(dbCity.length > 0){
+    if(dbCity.length > 0){ //if the city is registered in the database
       cityId = dbCity[0].id;
     }else{
       cityId = await trx('city').insert({uf, name:city});

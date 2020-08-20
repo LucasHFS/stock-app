@@ -23,7 +23,7 @@ function StoreIndex() {
     }, [transporters])
 
     return (
-        <div id="page-teacher-list" className="container">
+        <div id="page-transporter-list" className="container">
             <PageHeader title="Transportadoras" redirectPage='transporter' buttonWords="Cadastrar" />
             <main>
                 {transporters.map(store => (

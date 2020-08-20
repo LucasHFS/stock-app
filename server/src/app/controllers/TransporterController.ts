@@ -34,7 +34,7 @@ class TransporterController {
     }else{
       cityId = await trx('city').insert({uf, name:city});
     }
-    console.log(cityId);
+    
     const insertedTransporter = await trx('transporter').insert({
       name, 
       address, 
@@ -98,7 +98,6 @@ class TransporterController {
 
     return res.json(transporter);
   }
-
 }
 
 export default TransporterController;

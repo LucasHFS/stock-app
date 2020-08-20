@@ -22,7 +22,7 @@ function Stores() {
     }, [stores])
 
     return (
-        <div id="page-teacher-list" className="container">
+        <div id="page-store-list" className="container">
             <PageHeader title="Lojas" redirectPage="store" buttonWords="Nova Loja" />
             <main>
                 {stores.map(store => (
